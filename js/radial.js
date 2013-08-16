@@ -23,7 +23,10 @@ window.Radial_Button = function(num_arms, options){
 		sub_button_size: '40px'
 	};
 
-	var parentBtn = document.getElementById('main_button');
+	var container = document.getElementById('btn_container');
+	parentBtn = document.createElement('div');
+	parentBtn.setAttribute('id', 'main_button');
+	container.appendChild(parentBtn);
 	parentBtn.innerHTML = defaultOptions.main_button_text;
 	var offsetToParentCenter = parseInt(parentBtn.offsetWidth / 2);
 	var offsetToChildCenter = 20;
@@ -38,7 +41,7 @@ window.Radial_Button = function(num_arms, options){
 		childBtns.style.top = (y + totalOffset).toString() + "px";
 		childBtns.style.left = (x + totalOffset).toString() + "px";
 		childBtns.style.display = "none";
-		parentBtn.appendChild(childBtns);
+		container.appendChild(childBtns);
 	}
 
 	parentBtn.onclick = function(){
